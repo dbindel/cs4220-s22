@@ -1,0 +1,204 @@
+# ==================
+# Week 1 (intro)
+#
+-
+  date: 2022-01-24
+  info: Introduction
+-
+  date: 2022-01-26
+  info: Matrix manipulations
+-
+  date: 2022-01-28
+  info: Vector spaces, norms, singular values
+#
+# ==================
+# Week 2 (background) - HW1
+#
+-
+  date: 2022-01-31
+  info: Sensitivity and conditioning
+-
+  date: 2022-02-02
+  info: Floating point
+-
+  date: 2020-02-04
+  info: Floating point
+#
+# ==================
+# Week 3 (linear solves)
+#
+-
+  date: 2022-02-07
+  info: Gaussian elimination and Cholesky
+-
+  date: 2022-02-09
+  info: Gaussian elimination and Cholesky
+-
+  date: 2017-02-11
+  break: Pivoting and blocking
+#
+# ==================
+# Week 4 (structured solves)
+#
+-
+  date: 2022-02-14
+  info: Conditioning, error estimation, and refinement of linear systems
+-
+  date: 2022-02-16
+  info: Sparse, banded, and structured solves
+-
+  date: 2022-02-18
+  info: Other structured systems
+  away: UMD Neworks workshop
+#
+# ==================
+# Week 5 (least squares)
+#
+-
+  date: 2022-02-21
+  info: Intro to least squares
+-
+  date: 2022-02-23
+  info: Least squares and QR
+-
+  date: 2022-02-25
+  info: Ill-posedness and regularization
+#
+# ==================
+# Week 6 (least squares + eigen background)
+#
+-
+  date: 2022-02-28
+  break: February break
+-
+  date: 2022-03-02
+  info: Ill-posedness and regularization
+-
+  date: 2022-03-04
+  info: Applications of eigenvalue problems
+#
+# ==================
+# Week 7 (eigenvalue methods)
+#
+-
+  date: 2022-03-07
+  info: Power iteration
+-
+  date: 2022-03-09
+  info: From power methods to QR iteration
+-
+  date: 2022-03-11
+  info: Hessenberg, tridiagonal, and bidiagonal
+#
+# ==================
+# Week 8 (nonlinear solvers in 1D)
+#
+-
+  date: 2022-03-14
+  info: Nonlinear equations in 1D
+-
+  date: 2022-03-16
+  info: Nonlinear equations in 1D
+-
+  date: 2022-03-18
+  info: Optimization in 1D
+#
+# ==================
+# Week 9 (linear iterative solvers)
+# Weds is drop deadline
+#
+-
+  date: 2022-03-21
+  info: Stationary iterations
+-
+  date: 2022-03-23
+  info: Krylov subspaces and CG
+-
+  date: 2022-03-25
+  info: Preconditioning
+  away: Simons
+#
+# ==================
+# Week 10 (nonlinear eq and optimization)
+#
+-
+  date: 2022-03-28
+  info: Nonlinear equations and optimization
+-
+  date: 2022-03-30
+  info: Gradient methods
+-
+  date: 2022-04-01
+  info: Stochastic gradient methods
+#
+# ==================
+# Break
+#
+-
+  date: 2022-04-04
+  break: Spring break
+-
+  date: 2022-04-06
+  break: Spring break
+-
+  date: 2022-04-08
+  break: Spring break
+#
+# ==================
+# Week 11 (iterations and globalization)
+#
+-
+  date: 2022-04-11
+  info: Newton in many dimensions
+-
+  date: 2022-04-13
+  info: Modified Newton iterations
+-
+  date: 2022-04-15
+  info: Quasi-Newton and other iterations
+#
+# ==================
+# Week 12 (iterations and globalization)
+#
+-
+  date: 2022-04-18
+  info: Line search and globalization
+-
+  date: 2022-04-20
+  info: Trust regions
+-
+  date: 2022-04-22
+  info: Homotopy and continuation
+#
+# ==================
+# Week 14 (globalization and constraints)
+#
+-
+  date: 2022-04-25
+  info: Constraints and multipliers
+-
+  date: 2022-04-27
+  info: Methods for equality constraints
+-
+  date: 2022-04-29
+  info: Methods for inequality constraints
+#
+# ==================
+# Week 15 (constraints)
+#
+-
+  date: 2022-05-02
+  info: Splitting methods
+-
+  date: 2022-05-04
+  info: Derivative free methods
+-
+  date: 2022-05-06
+  info: Review
+#
+# ==================
+# Week 16 (wrap-up)
+#
+-
+  date: 2022-05-09
+  info: Review
