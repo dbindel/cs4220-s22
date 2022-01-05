@@ -9,7 +9,7 @@ layout:     main
 
 CS 4220/CS 5223/MATH 4260, Spring 2022  
 Lecture time: MWF 11:20-12:10  
-Lecture location: TBA
+Lecture location: Olin 255
 
 ### Staff and office hours
 
