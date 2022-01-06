@@ -4,12 +4,15 @@
 -
   date: 2022-01-24
   info: Introduction
+  away: Virtual for COVID
 -
   date: 2022-01-26
   info: Matrix manipulations
+  away: Virtual for COVID
 -
   date: 2022-01-28
   info: Vector spaces, norms, singular values
+  away: Virtual for COVID
 #
 # ==================
 # Week 2 (background) - HW1
@@ -17,12 +20,15 @@
 -
   date: 2022-01-31
   info: Sensitivity and conditioning
+  away: Virtual for COVID
 -
   date: 2022-02-02
   info: Floating point
+  away: Virtual for COVID
 -
   date: 2020-02-04
   info: Floating point
+  away: Virtual for COVID
 #
 # ==================
 # Week 3 (linear solves)
