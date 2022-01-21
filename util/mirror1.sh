@@ -11,3 +11,7 @@ fi
 cd /home/bindel/work/class/cs4220-s22/web
 git pull origin
 rake deploy
+
+cd /home/bindel/work/class/cs4220-s22/web-netid
+git pull origin
+rake deploy
