@@ -4,15 +4,12 @@
 -
   date: 2022-01-24
   info: Introduction
-  away: Virtual for COVID
 -
   date: 2022-01-26
   info: Matrix manipulations
-  away: Virtual for COVID
 -
   date: 2022-01-28
   info: Vector spaces, norms, singular values
-  away: Virtual for COVID
 #
 # ==================
 # Week 2 (background) - HW1
@@ -20,15 +17,14 @@
 -
   date: 2022-01-31
   info: Sensitivity and conditioning
-  away: Virtual for COVID
 -
   date: 2022-02-02
   info: Floating point
-  away: Virtual for COVID
 -
   date: 2020-02-04
   info: Floating point
-  away: Virtual for COVID
+  hw:
+    - info: HW1 due
 #
 # ==================
 # Week 3 (linear solves)
@@ -41,7 +37,9 @@
   info: Gaussian elimination and Cholesky
 -
   date: 2017-02-11
-  break: Pivoting and blocking
+  info: Pivoting and blocking
+  hw:
+    - info: HW2 due
 #
 # ==================
 # Week 4 (structured solves)
@@ -55,7 +53,7 @@
 -
   date: 2022-02-18
   info: Other structured systems
-  away: UMD Neworks workshop
+  travel: UMD Neworks workshop
 #
 # ==================
 # Week 5 (least squares)
@@ -69,6 +67,8 @@
 -
   date: 2022-02-25
   info: Ill-posedness and regularization
+  hw:
+    - info: P1 due
 #
 # ==================
 # Week 6 (least squares + eigen background)
@@ -82,6 +82,9 @@
 -
   date: 2022-03-04
   info: Applications of eigenvalue problems
+  hw:
+    - info: HW3 due
+    - info: Proj proposal (5223 only)
 #
 # ==================
 # Week 7 (eigenvalue methods)
@@ -95,6 +98,8 @@
 -
   date: 2022-03-11
   info: Hessenberg, tridiagonal, and bidiagonal
+  hw:
+    - info: MT due
 #
 # ==================
 # Week 8 (nonlinear solvers in 1D)
@@ -122,7 +127,9 @@
 -
   date: 2022-03-25
   info: Preconditioning
-  away: Simons
+  travel: Simons
+  info:
+    - P2 due
 #
 # ==================
 # Week 10 (nonlinear eq and optimization)
@@ -136,6 +143,8 @@
 -
   date: 2022-04-01
   info: Stochastic gradient methods
+  info:
+    - HW4 due
 #
 # ==================
 # Break
@@ -175,6 +184,8 @@
 -
   date: 2022-04-22
   info: Homotopy and continuation
+  info:
+    - P3 due
 #
 # ==================
 # Week 14 (globalization and constraints)
@@ -188,6 +199,8 @@
 -
   date: 2022-04-29
   info: Methods for inequality constraints
+  info:
+    - HW5 due
 #
 # ==================
 # Week 15 (constraints)
@@ -201,6 +214,8 @@
 -
   date: 2022-05-06
   info: Review
+  hw:
+    - info: HW6 due
 #
 # ==================
 # Week 16 (wrap-up)
@@ -208,3 +223,5 @@
 -
   date: 2022-05-09
   info: Review
+  hw:
+    - info: Project due (5223 only)
