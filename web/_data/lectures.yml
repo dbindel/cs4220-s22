@@ -128,8 +128,8 @@
   date: 2022-03-25
   info: Preconditioning
   travel: Simons
-  info:
-    - P2 due
+  hw:
+    - info: P2 due
 #
 # ==================
 # Week 10 (nonlinear eq and optimization)
@@ -143,8 +143,8 @@
 -
   date: 2022-04-01
   info: Stochastic gradient methods
-  info:
-    - HW4 due
+  hw:
+    - info: HW4 due
 #
 # ==================
 # Break
@@ -184,8 +184,8 @@
 -
   date: 2022-04-22
   info: Homotopy and continuation
-  info:
-    - P3 due
+  hw:
+    - info: P3 due
 #
 # ==================
 # Week 14 (globalization and constraints)
@@ -199,8 +199,8 @@
 -
   date: 2022-04-29
   info: Methods for inequality constraints
-  info:
-    - HW5 due
+  hw:
+    - info: HW5 due
 #
 # ==================
 # Week 15 (constraints)
