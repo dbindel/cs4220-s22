@@ -604,7 +604,28 @@ list is:
 \end{itemize}
 At this point, we could write down all possible loop orderings
 and run a timing experiment, similar to what we did with
-matrix-vector multiplication.  But the truth is that high-performance
+matrix-vector multiplication.  We do a partial such experiment in Figure~\ref{fig:matmul-time}.
+
+\begin{figure} \label{fig:matmul-time}
+\begin{tikzpicture}
+  \begin{axis}[width=\textwidth,xlabel={$n$},ylabel={GFlop/s},xmin=0,ymin=0]
+
+  \addplot table [x index=0, y index=1] {data/matmul_time_jl.dat};
+  \addlegendentry{Default};
+
+  \addplot table [x index=0, y index=2] {data/matmul_time_jl.dat};
+  \addlegendentry{ijk (inner)};
+
+  \addplot table [x index=0, y index=3] {data/matmul_time_jl.dat};
+  \addlegendentry{kji (outer)};
+  \end{axis}
+\end{tikzpicture}  
+  \caption{Timing of three matrix-matrix multiply implementations.
+    In each case, we report the effective time in GFLop/s.
+    The line labeled ``default'' is the built-in Julia matvec.}
+\end{figure}
+
+But the truth is that high-performance
 matrix-matrix multiplication routines use another access pattern
 altogether, involving more than three nested loops, and we will
 describe this now.
