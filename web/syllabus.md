@@ -37,7 +37,7 @@ course.
 
 Linear algebra at the level of MATH 2210 or 2940
 or equivalent and a CS 1 course in any language.  We will assume you
-remember your calculus and can pick up MATLAB or Julia.  Recommended but not
+remember your calculus and can pick up Julia.  Recommended but not
 essential: either CS 3220 or one additional mathematics course 
 numbered 3000 or above.
 This course can be taken before or after CS 4210/MATH 4250.
@@ -64,17 +64,6 @@ to using the Julia programming language; see in particular the
 [learning](http://julialang.org/learning/) link at the top of the
 home page.
 
-Some MATLAB references (if you prefer MATLAB/Octave to Julia):
-
-- Moler, [_Numerical Computing with MATLAB_][ncm]
-- Van Loan and Fan,
-  [_Insight Through Computing: A Matlab Introduction to Computational Science and Engineering_][itc]
-- Pratap, [_Getting Started with MATLAB 7_][pratap]
-- Gilat, [_MATLAB: An Introduction with Applications_][gilat]
-- Hanselman and Littlefield, [_Mastering MATLAB7_][hanselman]
-- Or pick a favorite from the [many available][mathworks-books]
-
-
 [ag]: http://bookstore.siam.org/cs07/
 [age]: http://epubs.siam.org/doi/book/10.1137/9780898719987
 
@@ -86,9 +75,6 @@ Some MATLAB references (if you prefer MATLAB/Octave to Julia):
 [ncm]: http://www.mathworks.com/moler/index_ncm.html
 [itc]: http://www.ec-securehost.com/SIAM/OT117.html
 [pratap]: http://www.amazon.com/gp/product/0195179374/qid=1137779327/sr=8-1/ref=pd_bbs_1/002-5247186-8320001
-[gilat]: http://www.amazon.com/MATLAB-Introduction-Applications-Amos-Gilat/dp/0470108770/
-[hanselman]: http://www.amazon.com/Mastering-MATLAB-Duane-C-Hanselman/dp/0131430181/
-[mathworks-books]: http://www.mathworks.com/support/books/index_by_categorytitle.html?category=17
 
 ## Approximate lecture schedule
 
@@ -179,7 +165,7 @@ be submitted up to the last day of classes.
 There will be one midterm and one final exam:
 
  - Midterm: March 6-13
- - Final Exam: May 4-11
+ - Final Exam: May 11-18?
 
 Both exams are take home.  A couple points on the final will go
 toward course evaluation.
