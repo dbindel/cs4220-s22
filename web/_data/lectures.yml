@@ -11,7 +11,7 @@
     - info: NB (Julia)
       url: lec/2022-01-24-perf.jl
     - info: NB (HTML)
-      url: lec/2022-01-24.jl-perf.html
+      url: lec/2022-01-24-perf.jl.html
 -
   date: 2022-01-26
   info: Matrix manipulations
