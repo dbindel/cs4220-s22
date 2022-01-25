@@ -97,19 +97,20 @@ We will see a handful of standard matrices throughout the
 course:
 \begin{itemize}
 \item The zero matrix (written $0$ -- we distinguish from the scalar
-  zero by context).  In MATLAB: {\tt zeros(m,n)}.
-\item The identity matrix $I$.  In MATLAB: {\tt eye(n)}.
-\item Diagonal matrices, usually written $D$.  In MATLAB:
-  {\tt diag(d)} where {\tt d} is the vector of diagonal entries.
+  zero by context).  In Julia: {\tt zeros(m,n)}.
+\item The identity matrix $I$.  In Julia: {\tt I} (or {\tt Matrix(I,
+  n, n)} in the rare cases you need a concrete materialization).
+\item Diagonal matrices, usually written $D$.  In Julia:
+  {\tt diagm(d)} where {\tt d} is the vector of diagonal entries.
 \item Permutation matrices, usually written $P$ or $\Pi$ (but
   sometimes written $Q$ if $P$ is already used).  These are square 0-1
   matrices with exactly one 1 in each row and column.  They look like
-  the identity matrix with the columns permuted.  In MATLAB, I would
-  usually write {\tt P = eye(n); P = P(:,idx)} where {\tt idx} is an
+  the identity matrix with the columns permuted.  In Julia, I could
+  write {\tt P = Matrix(I,n,n); P = P[:,idx]} where {\tt idx} is an
   index vector such that data at index {\tt idx(k)} in a vector $v$
   gets mapped to index {\tt k} in $Pv$.
 \end{itemize}
-Though I have given MATLAB commands to construct these matrices,
+Though I have given Julia commands to construct these matrices,
 we usually would not actually create them explicitly except as a
 step in creating another matrix (see Van Loan's sixth commandment!).
 
