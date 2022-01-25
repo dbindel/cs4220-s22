@@ -8,10 +8,10 @@
   ulinks:
     - info: slides
       url: https://docs.google.com/presentation/d/e/2PACX-1vQUocZHWH7T8w8KxafeJnJ6xiFtrHgjvsI2kzUcngNVgwc6FQvtx9-yGZ8GRFb_Rr19tVZk-pIyYO5H/pub?start=false&loop=false&delayms=3000
-    - info: Pluto NB
-      url: lec/2022-01-24.jl
-    - info: Pluto NB (HTML)
-      url: lec/2022-01-24.jl.html
+    - info: NB (Julia)
+      url: lec/2022-01-24-perf.jl
+    - info: NB (HTML)
+      url: lec/2022-01-24.jl-perf.html
 -
   date: 2022-01-26
   info: Matrix manipulations
