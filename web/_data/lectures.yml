@@ -16,6 +16,10 @@
   date: 2022-01-26
   info: Matrix manipulations
   notes: 2022-01-26.pdf
+    - info: NB (Julia)
+      url: lec/2022-01-26-matrices.jl
+    - info: NB (HTML)
+      url: lec/2022-01-26-matrices.jl.html
 -
   date: 2022-01-28
   info: Vector spaces, norms, singular values

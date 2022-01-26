@@ -6,7 +6,9 @@ LEC= \
 	pdf/2022-01-26.pdf \
 	pdf/2022-01-28.pdf \
 	pluto/2022-01-24-perf.jl \
-	pluto/2022-01-24-perf.jl.html 
+	pluto/2022-01-24-perf.jl.html \
+	pluto/2022-01-26-matrices.jl \
+	pluto/2022-01-26-matrices.jl.html
 
 .PHONY: all copy
 all: $(LEC)
