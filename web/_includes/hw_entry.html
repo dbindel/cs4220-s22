@@ -1,9 +1,8 @@
 <p class="hanging-indent">
   <strong>Due {{ entry.due }}:</strong>
   {{ entry.text }}
+  {% if entry.pluto %}[notebook <a href="hw/{{ file }}.jl">jl</a>/<a href="hw/{{ file }}.jl.html">html</a>]{% endif %}
   {% for file in entry.files %}
   [<a href="hw/{{ file }}">{{ file }}</a>]
-  {% endfor %}{% if entry.nb %}
-  [<a href="https://github.com/dbindel/cs4220-s20/blob/master/hw/code/{{ entry.nb }}.ipynb">Jupyter nb</a>]
-  {% endif %}
+  {% endfor %}
 </p>
