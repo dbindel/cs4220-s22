@@ -7,6 +7,9 @@ using InteractiveUtils
 # ╔═╡ 67407319-ab93-402b-b281-67afecac152e
 using LinearAlgebra
 
+# ╔═╡ dfa9a07e-a7ea-4a38-97f7-9854ad6d6fe9
+using BenchmarkTools
+
 # ╔═╡ 487c4b1c-7fd9-11ec-11b8-d9640811f522
 md"""
 # HW 1 for CS 4220
@@ -49,16 +52,9 @@ begin
 		A = rand(n, n)
 		d = rand(n)
 		hw1p1a(A, d)
-		t = 0.0
-		ntrials = 0
-		while t < 0.25
-			ntrials += 1
-			t += @elapsed hw1p1a(A, d)
-		end
-		t / ntrials
+		@belapsed hw1p1a($A, $d) seconds=0.5
 	end
-
-	"Estimated complexity: O(n^$(round(log2(time_hw1p1a(1000)/time_hw1p1a(500)))))"
+	"Estimated complexity: O(n^$(log2(time_hw1p1a(1000)/time_hw1p1a(500))))"
 end
 
 # ╔═╡ d7feb833-2e95-4272-b87d-21b2db67872f
@@ -93,16 +89,10 @@ begin
 		v = rand(n)
 		w = rand(n)
 		hw1p1b(d, u, v, w)
-		t = 0.0
-		ntrials = 0
-		while t < 0.25
-			ntrials += 1
-			t += @elapsed hw1p1b(d, u, v, w)
-		end
-		t / ntrials
+	    @belapsed hw1p1b($d, $u, $v, $w) seconds=0.5
 	end
 
-	"Estimated complexity: O(n^$(round(log2(time_hw1p1b(2000)/time_hw1p1b(1000)))))"
+	"Estimated complexity: O(n^$(log2(time_hw1p1b(4000)/time_hw1p1b(2000))))"
 end
 
 # ╔═╡ dc1e6d3d-e205-429c-a47f-0d144fc25a09
@@ -135,16 +125,10 @@ begin
 		d = rand(n)
 		w = rand(n)
 		hw1p1c(A, B, d, w)
-		t = 0.0
-		ntrials = 0
-		while t < 0.25
-			ntrials += 1
-			t += @elapsed hw1p1c(A, B, d, w)
-		end
-		t / ntrials
+	    @belapsed hw1p1c($A, $B, $d, $w) seconds=0.5
 	end
 
-	"Estimated complexity: O(n^$(round(log2(time_hw1p1c(500)/time_hw1p1c(250)))))"
+	"Estimated complexity: O(n^$(log2(time_hw1p1c(4000)/time_hw1p1c(2000))))"
 end
 
 # ╔═╡ fb114d09-9e1e-4501-b5d8-051d34d97aa0
@@ -249,7 +233,11 @@ end
 # ╔═╡ 00000000-0000-0000-0000-000000000001
 PLUTO_PROJECT_TOML_CONTENTS = """
 [deps]
+BenchmarkTools = "6e4b80f9-dd63-53aa-95a3-0cdb28fa8baf"
 LinearAlgebra = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
+
+[compat]
+BenchmarkTools = "~1.2.2"
 """
 
 # ╔═╡ 00000000-0000-0000-0000-000000000002
@@ -262,9 +250,25 @@ manifest_format = "2.0"
 [[deps.Artifacts]]
 uuid = "56f22d72-fd6d-98f1-02f0-08ddc0907c33"
 
+[[deps.BenchmarkTools]]
+deps = ["JSON", "Logging", "Printf", "Profile", "Statistics", "UUIDs"]
+git-tree-sha1 = "940001114a0147b6e4d10624276d56d531dd9b49"
+uuid = "6e4b80f9-dd63-53aa-95a3-0cdb28fa8baf"
+version = "1.2.2"
+
 [[deps.CompilerSupportLibraries_jll]]
 deps = ["Artifacts", "Libdl"]
 uuid = "e66e0078-7015-5450-92f7-15fbd957f2ae"
+
+[[deps.Dates]]
+deps = ["Printf"]
+uuid = "ade2ca70-3891-5945-98fb-dc099432e06a"
+
+[[deps.JSON]]
+deps = ["Dates", "Mmap", "Parsers", "Unicode"]
+git-tree-sha1 = "8076680b162ada2a031f707ac7b4953e30667a37"
+uuid = "682c06a0-de6a-54ab-a142-c8b1cf79cde6"
+version = "0.21.2"
 
 [[deps.Libdl]]
 uuid = "8f399da3-3557-5675-b5ff-fb832c97cbdb"
@@ -273,9 +277,54 @@ uuid = "8f399da3-3557-5675-b5ff-fb832c97cbdb"
 deps = ["Libdl", "libblastrampoline_jll"]
 uuid = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
 
+[[deps.Logging]]
+uuid = "56ddb016-857b-54e1-b83d-db4d58db5568"
+
+[[deps.Mmap]]
+uuid = "a63ad114-7e13-5084-954f-fe012c677804"
+
 [[deps.OpenBLAS_jll]]
 deps = ["Artifacts", "CompilerSupportLibraries_jll", "Libdl"]
 uuid = "4536629a-c528-5b80-bd46-f80d51c5b363"
+
+[[deps.Parsers]]
+deps = ["Dates"]
+git-tree-sha1 = "0b5cfbb704034b5b4c1869e36634438a047df065"
+uuid = "69de0a69-1ddd-5017-9359-2bf0b02dc9f0"
+version = "2.2.1"
+
+[[deps.Printf]]
+deps = ["Unicode"]
+uuid = "de0858da-6303-5e67-8744-51eddeeeb8d7"
+
+[[deps.Profile]]
+deps = ["Printf"]
+uuid = "9abbd945-dff8-562f-b5e8-e1ebf5ef1b79"
+
+[[deps.Random]]
+deps = ["SHA", "Serialization"]
+uuid = "9a3f8284-a2c9-5f02-9a11-845980a1fd5c"
+
+[[deps.SHA]]
+uuid = "ea8e919c-243c-51af-8825-aaa63cd721ce"
+
+[[deps.Serialization]]
+uuid = "9e88b42a-f829-5b0c-bbe9-9e923198166b"
+
+[[deps.SparseArrays]]
+deps = ["LinearAlgebra", "Random"]
+uuid = "2f01184e-e22b-5df5-ae63-d93ebab69eaf"
+
+[[deps.Statistics]]
+deps = ["LinearAlgebra", "SparseArrays"]
+uuid = "10745b16-79ce-11e8-11f9-7d13ad32a3b2"
+
+[[deps.UUIDs]]
+deps = ["Random", "SHA"]
+uuid = "cf7118a7-6976-5b1a-9a39-7adc72f591a4"
+
+[[deps.Unicode]]
+uuid = "4ec0a83e-493e-50e2-b9ac-8f72acf5a8f5"
 
 [[deps.libblastrampoline_jll]]
 deps = ["Artifacts", "Libdl", "OpenBLAS_jll"]
@@ -285,6 +334,7 @@ uuid = "8e850b90-86db-534c-a0d3-1478176c7d93"
 # ╔═╡ Cell order:
 # ╟─487c4b1c-7fd9-11ec-11b8-d9640811f522
 # ╠═67407319-ab93-402b-b281-67afecac152e
+# ╠═dfa9a07e-a7ea-4a38-97f7-9854ad6d6fe9
 # ╟─5fd85ce3-d746-4682-b9ce-8980b6692a3c
 # ╠═fcd2b4ff-e6f8-4c94-8f2a-46b0dd239005
 # ╟─2fff33f2-d129-41ae-a949-5946e534019a
