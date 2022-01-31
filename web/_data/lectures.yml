@@ -31,13 +31,16 @@
 #
 -
   date: 2022-01-31
-  info: Sensitivity and conditioning
+  info: Matrices, norms, ensitivity and conditioning
+  notes: 2022-01-31.pdf
 -
   date: 2022-02-02
   info: Floating point
+  notes: 2022-02-02.pdf
 -
-  date: 2020-02-04
+  date: 2022-02-04
   info: Floating point
+  notes: 2022-02-02.pdf
   hw:
     - info: HW1 due
 #
