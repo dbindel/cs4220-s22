@@ -593,7 +593,7 @@ operations.
 There are few good reasons to compute explicit matrix inverses or
 determinants in numerical computations.  Julia does provide these
 operations.  But if you find yourself typing {\tt inv} or {\tt det} in
-MATLAB, think long and hard.  Is there an alternate formulation?
+Julia, think long and hard.  Is there an alternate formulation?
 Could you use the forward slash or backslash operations for solving a
 linear system?
 
@@ -613,7 +613,7 @@ to represent the result of operations like $0/0$.
 
 The rule for floating point is that ``basic'' operations
 (addition, subtraction, multiplication, division, and square root)
-should return the true result, correctly rounded.  So a MATLAB
+should return the true result, correctly rounded.  So a Julia 
 statement
 \begin{lstlisting}
   % Compute the sum of x and y (assuming they are exact)
@@ -631,7 +631,7 @@ epsilon; for double precision, $\epsilon_{\mathrm{mach}} = 2^{-53}
   \hat{z} = z(1+\delta), \quad |\delta| \leq \epsilon_{\mathrm{mach}}.
 \]
 We can {\em model} the effects of roundoff on a computation by writing
-a separate $\delta$ term for each arithmetic operation in MATLAB;
+a separate $\delta$ term for each arithmetic operation in Julia;
 this is both incomplete (because it doesn't handle non-normalized
 numbers properly) and imprecise (because there is more structure to
 the errors than just the bound of machine epsilon).  Nonetheless,
