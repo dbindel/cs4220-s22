@@ -136,14 +136,14 @@ counts toward your grade via points oon the midterm and final.
 
 There will be six one-week homeworks, assigned Friday and due the
 following Friday.  These problems will involve a mix of short answers,
-plots, and computations done in MATLAB or Julia. Homework should be
+plots, and computations done in Julia. Homework should be
 typed and submitted as PDF files on CMS.  After they are graded,
 homework scores will be posted to CMS.  Regrade requests must be
 submitted within one week of receiving the graded homework.
 
 There will be three two-week programming projects, to be done either
 alone or in a group of two.  Projects will involve solving a larger
-problem, and may be done in MATLAB or Julia.  For projects,
+problem, and should be done in Julia.  For projects,
 you will need to submit both codes and a writeup PDF file on CMS.
 
 In order to provide timely, high-quality feedback, we may *not* always
