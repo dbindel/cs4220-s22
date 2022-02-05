@@ -35,12 +35,11 @@
   notes: 2022-01-31.pdf
 -
   date: 2022-02-02
-  info: Floating point
-  notes: 2022-02-02.pdf
+  info: Matrices, norms, sensitivity and conditioning
+  notes: 2022-01-31.pdf
 -
   date: 2022-02-04
-  info: Floating point
-  notes: 2022-02-02.pdf
+  break: Snow day (was to be floating point)
   hw:
     - info: HW1 due
 #
@@ -49,7 +48,8 @@
 #
 -
   date: 2022-02-07
-  info: Gaussian elimination and Cholesky
+  info: Floating point
+  notes: 2022-02-02.pdf
 -
   date: 2022-02-09
   info: Gaussian elimination and Cholesky
