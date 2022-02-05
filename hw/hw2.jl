@@ -140,20 +140,24 @@ $$\|p\|_1 = \int_{-1}^1 |p(x)| \, dx$$
 $$\|p\|_\infty = \max_{-1 \leq x \leq 1} |p(x)|$$
 
 $$\|p\|_2 = \sqrt{\int_{-1}^1 |p(x)|^2 \, dx}$$
+
+You may also find it useful to recall that
+
+$$\left| \int_a^b p(x) \, dx \right| \leq \int_a^b |p(x)| \, dx$$
 """
 
 # ╔═╡ cc69b5ce-3c9f-4679-b6ce-14798afea366
 md"""
 #### $L^1$ case
 
-Argue that for the norm induced by the $L^1$ norm on $\mathcal{P}_d$, we have $\|\mathcal{L}\|_1 \leq 1$.
+Argue that for the norm induced by the $L^1$ norm on $\mathcal{P}_d$, we have $\|\mathcal{L}\|_1 \leq 1$.  You do not need to cite any regularity results to change the order of integration (everything is nice enough that the relevant results hold).
 """
 
 # ╔═╡ c4d44adc-b02c-4ec6-afca-09236a7c3bef
 md"""
 ##### $L^\infty$ case
 
-Argue that for the norm induced by the $L^\infty$ norm on $\mathcal{P}_d$, we have $\|\mathcal{L}\|_\infty \leq 1$.  You do not need to cite any regularity results to change the order of integration (everything is nice enough that the relevant results hold).
+Argue that for the norm induced by the $L^\infty$ norm on $\mathcal{P}_d$, we have $\|\mathcal{L}\|_\infty \leq 1$.
 """
 
 # ╔═╡ 69db0e93-bb14-40ae-857e-21a42eef6b30
