@@ -67,9 +67,11 @@
 -
   date: 2022-02-14
   info: Conditioning, error estimation, and refinement of linear systems
+  notes: 2022-02-14.pdf
 -
   date: 2022-02-16
   info: Sparse, banded, and structured solves
+  notes: 2022-02-16.pdf
 -
   date: 2022-02-18
   info: Other structured systems
@@ -81,6 +83,7 @@
 -
   date: 2022-02-21
   info: Intro to least squares
+  notes: 2022-02-21.pdf
 -
   date: 2022-02-23
   info: Least squares and QR
