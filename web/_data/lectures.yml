@@ -76,6 +76,11 @@
   date: 2022-02-18
   info: Other structured systems
   travel: UMD Neworks workshop
+  ulinks:
+    - info: NB (Julia)
+      url: lec/2022-02-18.jl
+    - info: NB (HTML)
+      url: lec/2022-02-18.jl.html
 #
 # ==================
 # Week 5 (least squares)
