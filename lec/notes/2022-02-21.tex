@@ -55,12 +55,12 @@ where
   A_{i2} &= 1 \\
   x &= \begin{bmatrix} \alpha \\ \beta \end{bmatrix}
 \end{align*}
-MATLAB and Octave are capable of solving least squares problems using
+Julia is capable of solving least squares problems using
 the backslash operator; that is, if {\tt chirps} and {\tt temp} are
-column vectors in MATLAB, we can solve this regression problem as
+column vectors in Julia, we can solve this regression problem as
 \begin{lstlisting}
-  A = [chirps, ones(ndata,1)];
-  x = A\temp;
+  A = [chirps ones(ndata)]
+  x = A\temp
 \end{lstlisting}
 The algorithms underlying that backslash operation will make up
 most of the next lecture.
@@ -178,10 +178,11 @@ The solution to the least squares problem is then
 \[
   x = (A^T A)^{-1} A^T b = R^{-1} R^{-T} A^T b,
 \]
-or, in MATLAB world
+or, in Juliaa world
 \begin{lstlisting}
-  R = chol(A'*A, 'upper');
-  x = R\(R'\(A'*b));
+  AC = cholesky(A'*A)
+  x = AC\(A'*b)  # Using the factorization object, OR
+  x = AC.U\(AC.U'\(A'*b))
 \end{lstlisting}
 
 \subsection{Economy QR}
@@ -194,16 +195,17 @@ Let us write $A = QR$ where $Q = AR^{-1}$; then
 That is, $Q$ is a matrix with orthonormal columns.  This
 ``economy QR factorization'' can be computed in several different
 ways, including one that you have seen before in a different guise
-(the Gram-Schmidt process).  MATLAB provides a numerically stable
+(the Gram-Schmidt process).  Julia provides a numerically stable
 method to compute the QR factorization via
 \begin{lstlisting}
-  [Q,R] = qr(A,0);
+  AC = qr(A)
 \end{lstlisting}
 and we can use the QR factorization directly to solve the least
 squares problem without forming $A^T A$ by
 \begin{lstlisting}
-  [Q,R] = qr(A,0);
-  x = R\(Q'*b);
+  AC = qr(A,0)
+  x = AC\b   # Using the factorization object, OR
+  x = AC.R\((AC.Q'*b)[1:m])
 \end{lstlisting}
 
 \subsection{Full QR}
@@ -225,6 +227,11 @@ so
 We can set $\|Q_1^T v-R_1 x\|^2$ to zero by
 setting $x = R_1^{-1} Q_1^T b$; the result is
 $\|r\|^2 = \|Q_2^T b\|^2$.
+
+The actual thing computed by Julia is a sort of hybrid of the full
+and economy decompositions.  The data structure representing $Q$ (in
+compressed form) can reconstruct the full orthogonal matrix; but the
+$R$ factor is stored as in the economy form.
 
 \subsection{SVD}
 

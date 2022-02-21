@@ -89,6 +89,11 @@
   date: 2022-02-21
   info: Intro to least squares
   notes: 2022-02-21.pdf
+  ulinks:
+    - info: NB (Julia)
+      url: lec/2022-02-21.jl
+    - info: NB (HTML)
+      url: lec/2022-02-21.jl.html
 -
   date: 2022-02-23
   info: Least squares and QR
