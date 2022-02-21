@@ -62,11 +62,11 @@ SPD.
 
 In terms of basic Julia operations, Cholesky factorization looks like
 \begin{lstlisting}
-% Overwrite the lower triangular factor of A with L
+# Overwrite the lower triangular factor of A with L
 for j = 1:n
-  A[j,j] = sqrt(A[j,j]);
-  A[j+1:n,j] /= A[j,j];
-  A[j+1:n,j+1:n] -= A[j+1:n,j]*A[j,j+1:n]';
+  A[j,j] = sqrt(A[j,j])
+  A[j+1:n,j] /= A[j,j]
+  A[j+1:n,j+1:n] -= A[j+1:n,j]*A[j,j+1:n]'
 end
 \end{lstlisting}
 This is very similar to the standard Gaussian elimination loop.
@@ -163,18 +163,18 @@ At the end of the iteration, we have
 
 In code, we go from the standard Gaussian elimination loop
 \begin{lstlisting}
-% Overwrite A with L and U
+# Overwrite A with L and U
 for j = 1:n-1
-  A(j+1:n,j) = A(j+1:n,j)/A(j,j);
-  A(j+1:n,j+1:n) = A(j+1:n,j+1:n) - A(j+1:n,j)*A(j,j+1:n);
+  A[j+1:n,j] /= A(j,j);
+  A[j+1:n,j+1:n] -= A[j+1:n,j]*A[j,j+1:n]'
 end
 \end{lstlisting}
 to the simplified loop
 \begin{lstlisting}
-% Overwrite T with L and U
+# Overwrite T with L and U
 for j = 1:n-1
-  T(j+1,j) = T(j+1,j)/T(j,j);
-  T(j+1,j+1) = T(j+1,j+1) - T(j+1,j)*T(j,j+1);
+  T[j+1,j] /= T[j,j]
+  T[j+1,j+1] -= T[j+1,j]*T[j,j+1]
 end
 \end{lstlisting}
 The former loop does $O(n^2)$ work per step, while the latter does
@@ -189,10 +189,10 @@ matrix.  For example, in the case of the tridiagonal matrix,
 we might store the $a$, $b$, and $c$ coefficients as vectors,
 in which case Gaussian elimination looks like
 \begin{lstlisting}
-% Overwrite a with the L entries, and b and c with the U entries
+# Overwrite a with the L entries, and b and c with the U entries
 for j = 1:n-1
-  a(j+1) = a(j+1)/b(j);
-  b(j+1) = b(j+1)-a(j+1)*c(j);
+  a[j+1] /= b[j]
+  b[j+1] -= a[j+1]*c[j]
 end
 \end{lstlisting}
 
