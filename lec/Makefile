@@ -18,6 +18,8 @@ LEC= \
 	pluto/2022-01-26-matrices.jl.html \
 	pluto/2022-02-02.jl \
 	pluto/2022-02-02.jl.html \
+	pluto/2022-02-18.jl \
+	pluto/2022-02-18.jl.html \
 	pluto/2022-02-21.jl \
 	pluto/2022-02-21.jl.html
 
