@@ -50,6 +50,11 @@
   date: 2022-02-07
   info: Floating point
   notes: 2022-02-02.pdf
+  ulinks:
+    - info: NB (Julia)
+      url: lec/2022-02-02.jl
+    - info: NB (HTML)
+      url: lec/2022-02-02.jl.html
 -
   date: 2022-02-09
   info: Gaussian elimination and Cholesky
