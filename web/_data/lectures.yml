@@ -112,6 +112,11 @@
 -
   date: 2022-02-23
   info: Least squares and QR
+  ulinks:
+    - info: NB (Julia)
+      url: lec/2022-02-23.jl
+    - info: NB (HTML)
+      url: lec/2022-02-23.jl.html
 -
   date: 2022-02-25
   info: Ill-posedness and regularization
