@@ -112,6 +112,7 @@
 -
   date: 2022-02-23
   info: Least squares and QR
+  notes: 2022-02-23.pdf
   ulinks:
     - info: NB (Julia)
       url: lec/2022-02-23.jl
