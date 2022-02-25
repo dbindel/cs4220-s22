@@ -121,8 +121,9 @@
 -
   date: 2022-02-25
   info: Ill-posedness and regularization
+  notes: 2022-02-25.pdf
   hw:
-    - info: P1 due
+    - info: P1 due (moved to Sun)
 #
 # ==================
 # Week 6 (least squares + eigen background)
