@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.18.0
+# v0.18.1
 
 using Markdown
 using InteractiveUtils
@@ -293,6 +293,27 @@ function residual(LL :: LabeledLaplacian)
 
 end
 
+# ╔═╡ 2d3c924d-5645-4c7b-989b-fd6bb4b7ce0b
+md"""
+And we provide some helper functions for working with the `LabeledLaplacian` objects.
+"""
+
+# ╔═╡ 5fc7bfdf-5899-47fe-a677-16cff7d14007
+begin
+
+	# Helpers to get sizes of different pieces
+	ntotal(LL :: LabeledLaplacian) = length(LL.active)
+	nmod_val(LL :: LabeledLaplacian) = length(LL.new_values)
+	nmod_wts(LL :: LabeledLaplacian) = length(LL.new_weights)
+	nmod(LL :: LabeledLaplacian) = nmod_val(LL) + nmod_wts(LL)
+	nactive(LL :: LabeledLaplacian) = sum(LL.active)
+
+	# Get active/inactive index sets
+	active(LL :: LabeledLaplacian) = LL.active
+	inactive(LL :: LabeledLaplacian) = .!LL.active
+
+end
+
 # ╔═╡ 09d20ee3-4cc7-433d-9094-6338a208d87e
 md"""
 ### Task 1
@@ -306,9 +327,13 @@ function solve!(LL :: LabeledLaplacian)
 	# Force refactorization
 	factor!(LL)
 
+	# Index sets for reference unknown and known pieces
+	Iu = active(LL)
+	Ik = inactive(LL)
+
 	# Compute RHS and do Cholesky solve
-	rhs = LL.L[LL.active,:] * LL.u
-	LL.u[LL.active] -= LL.LC \ rhs
+	rhs = LL.L[Iu,Ik] * LL.u[Ik]
+	LL.u[Iu] = -(LL.LC \ rhs)
 	
 end
 
@@ -340,6 +365,10 @@ $\gamma = s (e_i-e_j)^T u$.  Using this observation,
 we can form a bordered system that incorporates
 edge weight modifications as well as additional boundary conditions,
 all without re-computing any large sparse factorizations.
+
+I split this code into two pieces: a `compute_bordering` function that
+produces `B`, `C`, and `f` in the system above, and the `solve!` function 
+hat solves the actual system by block Gaussian elimination.
 
 Your updated code should take $O(k)$ linear solves with the existing factorization
 to account for $k$ updates, whether new assignments of node values or adjustments
@@ -399,17 +428,145 @@ md"""
 
 Again using the bordered system idea from the first part, we now want to consider the problem of *leave-one-out cross-validation* of the assigned values at the nodes.  That is, for a given node $j$ that has an assigned value $u_j$, we would like to compare $u_j$ to the value $u_j^{(-j)}$ we would have inferred if all the data but that value at node $j$ were provided.
 
-Complete the `cross_validate` function below to return the difference $u_j-u_j^{(-j)}$.  As in the previous task, your code should *not* require a new matrix factorization.  You should write a sanity check to make sure you have the right answer.
+Complete the `cross_validate` function below to return the difference
+$u_j-u_j^{(-j)}$.  As in the previous task, your code should *not* require
+a new matrix factorization.  You should use the sanity check to make sure
+you have the right answer.
+
+A useful building block will be a version of the solver code that solves systems $L_{11} x = b$ for general right hand sides via the bordered system
+
+$$\begin{bmatrix} L_{11} & B_1 \\ B_1^T & C \end{bmatrix} \begin{bmatrix} x \\ y \end{bmatrix} = \begin{bmatrix} b \\ 0 \end{bmatrix}$$
+
+Once we have this building block, it is convenient let $z = u-u^{(-j)}$, 
+and think of splitting the boundary nodes into group 2 
+(consisting just of node $j$) and group 3 (all the other boundary nodes).
+In our Julia framework, that means block 1 is associated with `active`, 
+block 2 is `j`, and block 3 is the rest of `.!active`.  We know
+that $u$ and $u^{(-j)}$ satisfy
+
+$$\begin{bmatrix} 
+  L_{11} & l_{12} & L_{13} \\ 
+  l_{21} & l_{22} & l_{23} \\
+  L_{31} & L_{32} & l_{33}
+\end{bmatrix}
+\begin{bmatrix} u_1 \\ u_2 \\ u_3 \end{bmatrix} = 
+\begin{bmatrix} 0 \\ r_2 \\ r_3 \end{bmatrix},
+\begin{bmatrix} 
+  L_{11} & l_{12} & L_{13} \\ 
+  l_{21} & l_{22} & l_{23} \\
+  L_{31} & L_{32} & l_{33}
+\end{bmatrix}
+\begin{bmatrix} u_1^{(-j)} \\ u_2^{(-j)} \\ u_3^{(-j)} \end{bmatrix} = 
+\begin{bmatrix} 0 \\ 0 \\ \tilde{r}_3 \end{bmatrix}$$
+
+and subtracting the two equations gives
+
+$$\begin{bmatrix} 
+  L_{11} & l_{12} & L_{13} \\ 
+  l_{21} & l_{22} & l_{23} \\
+  L_{31} & L_{32} & l_{33}
+\end{bmatrix}
+\begin{bmatrix} z_1 \\ z_2 \\ z_3 \end{bmatrix} = 
+\begin{bmatrix} 0 \\ r_2 \\ r_3-\tilde{r}_3 \end{bmatrix}$$
+
+where $z_3$ is by definition zero (since both $u$ and $u^{(-j)}$ agree on all the boundary nodes other than node $j$).  Therefore, we have
+
+$$\begin{bmatrix} 
+  L_{11} & l_{12} \\ 
+  l_{21} & l_{22} 
+\end{bmatrix}
+\begin{bmatrix} z_1 \\ z_2 \end{bmatrix} = 
+\begin{bmatrix} 0 \\ r_2 \end{bmatrix}$$
+
+and eliminating the first block gives the system
+
+$$(l_{22} - l_{21} L_{11}^{-1} l_{12}) z_2 = r_2.$$
+
+Note that $z_2$ is precisely the cross-validation value that we've described.
 """
 
 # ╔═╡ 891bd87d-961c-44a8-96cc-eb67fcd00224
 function cross_validate(LL :: LabeledLaplacian, j)
-	if LL.active[j]
+	if !LL.active[j]
 		0.0 # Replace this with the cross-validation computation
 	else
 		0.0 # This is correct if j didn't have an assigned value anyhow
 	end
 end
+
+# ╔═╡ 3afb9b73-6b5a-4c05-9ee1-09ebfe764bcb
+md"""
+The cross-validation can be done in about the same time as the fast solves described
+before using the bordered solver approach.  We give two tests to compare the fast
+approach against a reference computation (the second a little harder than the first). 
+The reference version takes a few seconds on my machine (vs a fraction of a second).
+"""
+
+# ╔═╡ dfde5ff2-7ff2-4bb0-a100-0046e93c0d0c
+function test_cross_validate1()
+	LLCA = LabeledLaplacian(CA_I, CA_J)
+
+	# Add a first batch of values and solve
+	new_value!(LLCA, [1.0, 2.0, 3.0], [1, 10, 20])
+	solve!(LLCA)
+	u30_ref = LLCA.u[30]
+
+	# Add one more node and re-solve with forced factorization
+	new_value!(LLCA, [4.0], [30])
+	factor!(LLCA)
+	solve!(LLCA)
+	
+	# Run cross-validation and compare with the expensive version
+	zref = 4.0-u30_ref
+	t1 = @elapsed begin zcv = cross_validate(LLCA, 30) end
+
+	md"""
+	- Slow computation: $(zref)
+	- Fast computation: $(zcv)
+	- Relerr: $(abs(zref-zcv)/abs(zref))
+	- Time (fast): $(t1)
+	"""
+end
+
+# ╔═╡ 6d34ed7c-0b58-4bb1-aeff-94f0be7a990d
+test_cross_validate1()
+
+# ╔═╡ 4723b7fb-499b-4bf9-85a5-79a978c303eb
+function test_cross_validate2()
+	LLCA = LabeledLaplacian(CA_I, CA_J)
+
+	# Add a first batch of values and solve
+	new_value!(LLCA, [1.0, 2.0, 3.0], [1, 10, 20])
+	solve!(LLCA)
+	u30_ref = LLCA.u[30]
+
+	# Add one more node and re-solve with forced factorization
+	new_value!(LLCA, [4.0], [30])
+	factor!(LLCA)
+	solve!(LLCA)
+
+	LLCA2 = LabeledLaplacian(CA_I, CA_J)
+
+	# Add values in two batches to sanity check this works with bordered solver
+	new_value!(LLCA2, [1.0, 2.0, 4.0], [1, 10, 30])
+	solve!(LLCA2)
+	new_value!(LLCA2, [3.0], [20])
+	solve!(LLCA2)
+	
+	# Run cross-validation and compare with the expensive version
+	zref = 4.0-u30_ref
+	t1 = @elapsed begin zcv = cross_validate(LLCA, 30) end
+
+	md"""
+	- Slow computation: $(zref)
+	- Fast computation: $(zcv)
+	- Relerr: $(abs(zref-zcv)/abs(zref))
+	- Time (fast): $(t1)
+	"""
+end
+
+# ╔═╡ 3d58b1e5-6bf3-4917-9a3e-041ca759dd48
+test_cross_validate2()
 
 # ╔═╡ 7c5d46eb-e7ce-43b6-8066-011e8619ecb4
 md"""
@@ -441,7 +598,45 @@ As in task 2, you should also provide a sanity check code.
 # ╔═╡ 64c99435-dadd-4528-afc3-a1a178ccaf0f
 function edge_sensitivity(LL :: LabeledLaplacian, k)
 	# Computes a sparse matrix of sensitivities of u_k to the weight on each edge
+	I, J, _ = findnz(LL.L)
+	SIJ = I .+ J           # Placeholder --you should change!
+	sparse(I, J, SIJ)
 end
+
+# ╔═╡ e89c0ab6-b522-4399-9f23-c44c118ab734
+function test_edge_sensitivity()
+	LLCA = LabeledLaplacian(CA_I, CA_J)
+
+	# Add values in two batches to sanity check this works with bordered solver
+	new_value!(LLCA, [1.0, 2.0, 4.0], [1, 10, 30])
+	solve!(LLCA)
+	new_value!(LLCA, [3.0], [20])
+	solve!(LLCA)
+
+	# Do full computation
+	t1 = @elapsed begin S = edge_sensitivity(LLCA, 100) end
+
+	# Try adjusting the weight from 13 to 14 and finite difference check
+	t2 = @elapsed begin
+		h = 1e-4
+		u100 = LLCA.u[100]
+		update_edge!(LLCA, h, 13, 14)
+		solve!(LLCA)
+		u100p = LLCA.u[100]
+		fd = (u100p-u100)/h
+	end
+
+	md"""
+	- Fast sensitivity on (13,14): $(S[13,14])
+	- Slow edge sensitivity on (13,14): $(fd)
+	- Relerr: $(abs(S[13,14]-fd)/abs(fd))
+	- Elapsed time: $(t1)
+	- Estimated via bordered solves: $(t2*nnz(LLCA.L)/2)
+	"""
+end
+
+# ╔═╡ 8ff34d78-11e9-452c-bfaa-ec0cf218e5df
+test_edge_sensitivity()
 
 # ╔═╡ 00000000-0000-0000-0000-000000000001
 PLUTO_PROJECT_TOML_CONTENTS = """
@@ -530,6 +725,8 @@ uuid = "8e850b90-86db-534c-a0d3-1478176c7d93"
 # ╠═0f7ef41b-00cf-42b8-8932-af05b7cfd195
 # ╟─e22facfe-b7cb-4d20-89a0-171714995198
 # ╠═c8f16076-429f-4445-b97b-3787b6f0682c
+# ╟─2d3c924d-5645-4c7b-989b-fd6bb4b7ce0b
+# ╠═5fc7bfdf-5899-47fe-a677-16cff7d14007
 # ╟─09d20ee3-4cc7-433d-9094-6338a208d87e
 # ╠═33487051-1c76-49e9-b9b4-af7e1103b030
 # ╟─06cf9074-086e-4008-a2cd-00123e0bbbf0
@@ -539,7 +736,14 @@ uuid = "8e850b90-86db-534c-a0d3-1478176c7d93"
 # ╟─cfa9a5a8-9053-460b-9fec-63a81d8b0127
 # ╟─dbcbcdc8-c301-4ccc-87cb-51b9453fb70a
 # ╠═891bd87d-961c-44a8-96cc-eb67fcd00224
+# ╟─3afb9b73-6b5a-4c05-9ee1-09ebfe764bcb
+# ╠═dfde5ff2-7ff2-4bb0-a100-0046e93c0d0c
+# ╠═6d34ed7c-0b58-4bb1-aeff-94f0be7a990d
+# ╠═4723b7fb-499b-4bf9-85a5-79a978c303eb
+# ╠═3d58b1e5-6bf3-4917-9a3e-041ca759dd48
 # ╟─7c5d46eb-e7ce-43b6-8066-011e8619ecb4
 # ╠═64c99435-dadd-4528-afc3-a1a178ccaf0f
+# ╠═e89c0ab6-b522-4399-9f23-c44c118ab734
+# ╠═8ff34d78-11e9-452c-bfaa-ec0cf218e5df
 # ╟─00000000-0000-0000-0000-000000000001
 # ╟─00000000-0000-0000-0000-000000000002
