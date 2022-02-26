@@ -3,7 +3,6 @@ title: Project idea
 layout: main
 ---
 
-# Project idea
 ## Due March 7
 
 *Only for those of you taking this course as 5223!*
