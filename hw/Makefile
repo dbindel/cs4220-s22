@@ -3,11 +3,13 @@ TEXINPUTS:=.
 HW= \
 	hw1.jl \
 	hw2.jl \
+	hw3.jl \
 	proj1.jl \
 	hw1.jl.html \
 	hw2.jl.html \
+	hw3.jl.html \
 	proj1.jl.html \
-	roadNet-CA.txt
+	proj_idea.md
 
 .PHONY: all copy
 all: $(LEC)

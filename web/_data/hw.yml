@@ -8,7 +8,16 @@
   pluto: hw2
 -
   text: Proj 1
-  due: 2022-02-25
+  due: 2022-03-04
   pluto: proj1
   files:
     - roadNet-CA.txt
+-
+  text: HW 3
+  due: 2022-03-07
+  pluto: hw3
+-
+  text: Term proj idea
+  due: 2022-03-07
+  files:
+    - proj_idea.html
