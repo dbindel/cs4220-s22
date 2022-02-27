@@ -265,7 +265,7 @@ Finally, we provide a residual check routine to provide some reassurance about t
 """
 
 # ╔═╡ c8f16076-429f-4445-b97b-3787b6f0682c
-function residual(LL :: LabeledLaplacian)
+function residual(LL :: LabeledLaplacian, clear_inactive=true)
 
 	# Compute residual with un-adjusted L
 	r = LL.L * LL.u
@@ -277,16 +277,20 @@ function residual(LL :: LabeledLaplacian)
 		r[j] -= dij
 	end
 
-	# Ignore entries for inactive dofs
-	for k = 1:length(LL.active)
-		if !LL.active[k]
-			r[k] = 0.0
-		end
-	end
+	if clear_inactive
 
-	# And separately track errors for newly-inactive dofs
-	for (i,v) in LL.new_values
-		r[i] = LL.u[i]-v
+		# Ignore entries for inactive dofs
+		for k = 1:length(LL.active)
+			if !LL.active[k]
+				r[k] = 0.0
+			end
+		end
+
+		# And separately track errors for newly-inactive dofs
+		for (i,v) in LL.new_values
+			r[i] = LL.u[i]-v
+		end
+
 	end
 
 	r
