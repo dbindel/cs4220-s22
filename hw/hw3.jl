@@ -23,7 +23,7 @@ md"""
 
 In the code block below, we create an artificial data set for a linear function on the unit square in $\mathbb{R}^2$:
 
-$$f(x,y) = c_1 + c_2 x + c_2 y$$
+$$f(x,y) = c_1 + c_2 x + c_3 y$$
 
 Based on noisy measurements $b_i = f(x_i,y_i) + \epsilon_i$, we want to use least squares to find an estimator $\hat{c}$ for the underlying $c$.  Fill in the `TODO` line to do this least squares computation.
 """
