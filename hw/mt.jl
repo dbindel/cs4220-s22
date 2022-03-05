@@ -9,15 +9,13 @@ using LinearAlgebra
 
 # ╔═╡ db885ec4-98e2-11ec-30bb-eb078b76cb06
 md"""
-# Midterm (draft)
+# Midterm
 
 You may use whatever reading materials you want -- the course notes should be
 sufficient, but you may also look online or at books.  Make sure you cite any
 sources beyond the course notes.  For this exam, you may ask questions of the
 course staff, but you should not work with others, whether inside or outside the
 class.
-
-Worth 15%.  Think 30 points split among 5-6 questions?
 """
 
 # ╔═╡ bb1f0b7c-b648-4f2a-8b64-52a65f2f34fa
@@ -80,7 +78,7 @@ begin
 	#    you may assume U is upper triangular and all non-negative.  One point here
 	#    is for complexity -- you should be able to do this in O(n) time.
 	#    Hint: you may want to look up log1p (the inverse of expm1 from HW)
-	function p3b(U)
+	function p2c(U)
 		log(det(I+U))
 	end
 
