@@ -127,6 +127,11 @@
   date: 2022-02-25
   info: Ill-posedness and regularization
   notes: 2022-02-25.pdf
+  ulinks:
+    - info: NB (Julia)
+      url: lec/2022-02-25.jl
+    - info: NB (HTML)
+      url: lec/2022-02-25.jl.html
 #
 # ==================
 # Week 6 (least squares + eigen background)
