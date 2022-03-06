@@ -25,3 +25,6 @@
 -
   date: 2022-03-05
   text: Corrected version is posted (only significant fix is changing a function name, p3b to p2c)
+-
+  date: 2022-03-06
+  text: Second correction, change subtraction in p2b to an addition
