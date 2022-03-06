@@ -25,6 +25,8 @@ LEC= \
 	pluto/2022-02-09.jl.html \
 	pluto/2022-02-11.jl \
 	pluto/2022-02-11.jl.html \
+	pluto/2022-02-14.jl \
+	pluto/2022-02-14.jl.html \
 	pluto/2022-02-18.jl \
 	pluto/2022-02-18.jl.html \
 	pluto/2022-02-21.jl \

@@ -111,23 +111,31 @@ If we wish to control the multipliers, it's natural to choose
 the permutation $P$ so that each of the multipliers is at most one.
 This standard choice leads to the following algorithm:
 \begin{lstlisting}
+# Return L, U, p s.t. A[p,:] = L*U and the largest entry of L has magnitude 1
+function my_pivoted_lu(A)
+
+  n = size(A)[1]
+  A = copy(A)         # Make a local copy to overwrite
+  piv = zeros(Int, n) # Space for the pivot vector
+  piv[1:n] = 1:n
+
   for j = 1:n-1
 
     # Find ipiv >= j to maximize |A(i,j)|
     ipiv = (j-1)+findmax(abs.(A[j:n,j]))[2]
 
-    # Swap row ipiv and row j
-    Aj = A[j,j:n]
-    A[j,j:n] = A[ipiv,j:n]
-    A[ipiv,j:n] = Aj
+    # Swap row ipiv and row j and record the pivot row
+    A[ipiv,:], A[j,:] = A[j,:], A[ipiv,:]
+    piv[ipiv], piv[j] = piv[j], piv[ipiv]
 
-    # Record the pivot row
-    piv[j] = ipiv
-
-    # Update trailing submatrix
-    A[j+1:n,j+1:n] -= A[j+1:n,j+1:n] - A[j+1:n,j]*A[j,j+1:n]
+    # Compute multipliers and update trailing submatrix
+    A[j+1:n,j] /= A[j,j]
+    A[j+1:n,j+1:n] -= A[j+1:n,j]*A[j,j+1:n]'
 
   end
+
+  UnitLowerTriangular(A), UpperTriangular(A), piv
+end
 \end{lstlisting}
 
 By design, this algorithm produces an $L$ factor in which all the

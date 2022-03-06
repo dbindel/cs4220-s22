@@ -83,6 +83,11 @@
   date: 2022-02-14
   info: Conditioning, error estimation, and refinement of linear systems
   notes: 2022-02-14.pdf
+  ulinks:
+    - info: NB (Julia)
+      url: lec/2022-02-14.jl
+    - info: NB (HTML)
+      url: lec/2022-02-14.jl.html
 -
   date: 2022-02-16
   info: Sparse, banded, and structured solves
