@@ -71,7 +71,7 @@ begin
 
 	# 1 point: Rewrite for good accuracy when z is large
 	function p2b(z)
-		1.0/(1.0+z)-1.0/(1.0-z)
+		1.0/(1.0+z)+1.0/(1.0-z)
 	end
 
 	# 3 points: Rewrite to avoid overflow and to maintain good accuracy for small U;
