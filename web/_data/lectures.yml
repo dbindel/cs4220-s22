@@ -167,6 +167,12 @@
 -
   date: 2022-03-09
   info: From power methods to QR iteration
+  notes: 2022-03-09.pdf
+  ulinks:
+    - info: NB (Julia)
+      url: lec/2022-03-09.jl
+    - info: NB (HTML)
+      url: lec/2022-03-09.jl.html
 -
   date: 2022-03-11
   info: Hessenberg, tridiagonal, and bidiagonal
