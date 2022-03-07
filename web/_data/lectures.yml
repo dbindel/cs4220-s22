@@ -155,6 +155,12 @@
 -
   date: 2022-03-07
   info: Power iteration
+  notes: 2022-03-07.pdf
+  ulinks:
+    - info: NB (Julia)
+      url: lec/2022-03-07.jl
+    - info: NB (HTML)
+      url: lec/2022-03-07.jl.html
   hw:
     - info: HW3 due
     - info: Proj proposal (5223 only)
