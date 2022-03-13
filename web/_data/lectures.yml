@@ -182,15 +182,21 @@
 #
 -
   date: 2022-03-14
-  info: Nonlinear equations in 1D
+  info: Stationary iterations
+  notes: 2022-03-14.pdf
+  ulinks:
+    - info: NB (Julia)
+      url: lec/2022-03-14.jl
+    - info: NB (HTML)
+      url: lec/2022-03-14.jl.html
   hw:
     - info: MT due
 -
   date: 2022-03-16
-  info: Nonlinear equations in 1D
+  info: Krylov subspaces and CG
 -
   date: 2022-03-18
-  info: Optimization in 1D
+  info: Preconditioning
 #
 # ==================
 # Week 9 (linear iterative solvers)
@@ -198,14 +204,16 @@
 #
 -
   date: 2022-03-21
-  info: Stationary iterations
+  travel: Simons
+  info: Nonlinear equations in 1D
 -
   date: 2022-03-23
-  info: Krylov subspaces and CG
+  travel: Simons
+  info: Nonlinear equations in 1D
 -
   date: 2022-03-25
-  info: Preconditioning
   travel: Simons
+  info: Optimization in 1D
   hw:
     - info: P2 due
 #
