@@ -112,14 +112,14 @@ quotient.  Let $u^{(k+1)} = x^{(k+1)}-x^{(k)}$; we know from our
 iteration equation that $u^{(k+1)} = R u^{(k)}$, so we might try
 to use Rayleigh quotients to estimate $\lambda_1$:
 \[
-  \rho_R(u^{(k)})
-    = \frac{u^{(k)} \cdot R u^{(k)}}{\|u^{(k)}\|^2}
-    = \frac{u^{(k)} \cdot u^{(k+1)}}{\|u^{(k)}\|^2}.
+\rho_R(u^{(k)})
+= \frac{u^{(k)} \cdot R u^{(k)}}{\|u^{(k)}\|^2}
+= \frac{u^{(k)} \cdot u^{(k+1)}}{\|u^{(k)}\|^2}.
 \]
 Plugging this into our estimate for the error correction gives us
 a transformed sequence
 \[
-  \tilde{x}^{(k)} = x^{(k)} - \frac{u^{(k)}{\rho_R(u^{(k)})-1},
+\check{x}^{(k)} = x^{(k)} - \frac{u^{(k)}}{\rho_R(u^{(k)})-1},
 \]
 which generally converges to the true solution faster than the
 original sequence converged.
@@ -194,3 +194,5 @@ want to accelerate a sequence converging to $\pi$!  But they also tend
 to be less numerically delicate than standard extrapolation measure,
 which my their nature often involve a lot of cancellation effects in
 order to estimate errors from successive steps.
+
+\end{document}
