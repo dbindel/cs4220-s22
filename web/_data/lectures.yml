@@ -193,10 +193,12 @@
     - info: MT due
 -
   date: 2022-03-16
-  info: Krylov subspaces and CG
+  info: Gauss-Seidel convergence, extrapolation
+  notes: 2022-03-16.pdf
 -
   date: 2022-03-18
-  info: Preconditioning
+  info: Krylov subspace iterations
+  notes: 2022-03-18.pdf
 #
 # ==================
 # Week 9 (linear iterative solvers)

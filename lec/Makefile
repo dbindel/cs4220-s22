@@ -19,6 +19,7 @@ LEC= \
 	pdf/2022-03-09.pdf \
 	pdf/2022-03-14.pdf \
 	pdf/2022-03-16.pdf \
+	pdf/2022-03-18.pdf \
 	pluto/2022-01-24-perf.jl \
 	pluto/2022-01-24-perf.jl.html \
 	pluto/2022-01-26-matrices.jl \
