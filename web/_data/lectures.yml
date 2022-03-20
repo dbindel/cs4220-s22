@@ -213,14 +213,27 @@
   date: 2022-03-21
   travel: Simons
   info: Nonlinear equations in 1D
+  notes: 2022-03-21.pdf
+  ulinks:
+    - info: NB (Julia)
+      url: lec/2022-03-21.jl
+    - info: NB (HTML)
+      url: lec/2022-03-21.jl.html
 -
   date: 2022-03-23
   travel: Simons
   info: Nonlinear equations in 1D
+  notes: 2022-03-23.pdf
+  ulinks:
+    - info: NB (Julia)
+      url: lec/2022-03-23.jl
+    - info: NB (HTML)
+      url: lec/2022-03-23.jl.html
 -
   date: 2022-03-25
   travel: Simons
   info: Optimization in 1D
+  notes: 2022-03-25.pdf
   hw:
     - info: P2 due
 #
