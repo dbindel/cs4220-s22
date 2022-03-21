@@ -234,6 +234,11 @@
   travel: Simons
   info: Optimization in 1D
   notes: 2022-03-25.pdf
+  ulinks:
+    - info: NB (Julia)
+      url: lec/2022-03-25.jl
+    - info: NB (HTML)
+      url: lec/2022-03-25.jl.html
   hw:
     - info: P2 due
 #
