@@ -4,11 +4,13 @@ HW= \
 	hw1.jl \
 	hw2.jl \
 	hw3.jl \
+	hw4.jl \
 	proj1.jl \
 	proj2.jl \
 	hw1.jl.html \
 	hw2.jl.html \
 	hw3.jl.html \
+	hw4.jl.html \
 	proj1.jl.html \
 	proj2.jl.html \
 	proj_idea.md \
