@@ -120,14 +120,7 @@ $$e_{k+1} = -\frac{\alpha \gamma}{\beta+\gamma u_*} e_k + O(e_k^2).$$
 
 # ╔═╡ 91a5b0a5-9817-419a-a880-c776f53cabb5
 md"""
-*Answer*: Subtracting the fixed point equation from the iteration equation and writing $u_k = u_* + e_k$ gives
-
-$$\begin{align*}
-e_{k+1}
-&= -\alpha \log(\beta + \gamma (u_*+e_k)) + \alpha \log(\beta + \gamma u_*) \\
-&= -\alpha \log\left(1 + \frac{\gamma e_k}{\beta + \gamma u_*}\right) \\
-&= \frac{-\alpha \gamma}{\beta + \gamma u_*} e_k + O(e_k^2)
-\end{align*}$$
+*Answer*: 
 """
 
 # ╔═╡ 16a6d720-074e-4f86-bb67-403166ca9b0b
@@ -1118,7 +1111,7 @@ version = "0.9.1+5"
 # ╟─e11e4e62-23b0-4023-a756-d0bec1f217b5
 # ╠═a5da50c1-23f9-471a-a35a-3413347cb553
 # ╟─db1e9851-f4f1-4253-bd95-e8d7420003d3
-# ╟─91a5b0a5-9817-419a-a880-c776f53cabb5
+# ╠═91a5b0a5-9817-419a-a880-c776f53cabb5
 # ╟─16a6d720-074e-4f86-bb67-403166ca9b0b
 # ╠═2e4f5eb8-17cf-4074-b915-f29900c339c1
 # ╠═886f7fa3-0d75-4c1a-a59d-43775c3ead32
