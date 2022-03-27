@@ -248,12 +248,18 @@
 -
   date: 2022-03-28
   info: Nonlinear equations and optimization
+  notes: 2022-03-28.pdf
+  ulinks:
+    - info: NB (Julia)
+      url: lec/2022-03-28.jl
+    - info: NB (HTML)
+      url: lec/2022-03-28.jl.html
 -
   date: 2022-03-30
-  info: Gradient methods
+  info: Newton in many dimensions
 -
   date: 2022-04-01
-  info: Stochastic gradient methods
+  info: Scaled gradient descent
   hw:
     - info: HW4 due
 #
@@ -275,7 +281,7 @@
 #
 -
   date: 2022-04-11
-  info: Newton in many dimensions
+  info: Gauss-Newton and nonlinear least squares
 -
   date: 2022-04-13
   info: Modified Newton iterations
