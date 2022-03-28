@@ -257,9 +257,14 @@
 -
   date: 2022-03-30
   info: Newton in many dimensions
+  ulinks:
+    - info: NB (Julia)
+      url: lec/2022-03-30.jl
+    - info: NB (HTML)
+      url: lec/2022-03-30.jl.html
 -
   date: 2022-04-01
-  info: Scaled gradient descent
+  info: Gradient descent and Newton for optimization
   hw:
     - info: HW4 due
 #
