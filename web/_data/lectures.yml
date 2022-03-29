@@ -265,6 +265,11 @@
 -
   date: 2022-04-01
   info: Gradient descent and Newton for optimization
+  ulinks:
+    - info: NB (Julia)
+      url: lec/2022-04-01.jl
+    - info: NB (HTML)
+      url: lec/2022-04-01.jl.html
   hw:
     - info: HW4 due
 #

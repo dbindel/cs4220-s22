@@ -61,7 +61,9 @@ LEC= \
 	pluto/2022-03-28.jl \
 	pluto/2022-03-28.jl.html \
 	pluto/2022-03-30.jl \
-	pluto/2022-03-30.jl.html
+	pluto/2022-03-30.jl.html \
+	pluto/2022-04-01.jl \
+	pluto/2022-04-01.jl.html
 
 .PHONY: all copy
 all: $(LEC)
