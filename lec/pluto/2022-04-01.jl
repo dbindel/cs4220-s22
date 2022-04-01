@@ -460,7 +460,7 @@ $$e_{k+1} = e_k - H_{\phi}(x_*)^{-1} \left( \nabla \phi(x_*+e_k) - \nabla \phi(x
 
 Conclude that for some $\xi \in [0,1]$,
 
-$$e_{k+1} = H_{\phi}(x_*)^{-1} \left(H_{\phi}(x_*) - H_{\phi}(x_* + \xi e_k)\right) e_k,$$
+$$\|e_{k+1}\| \leq \| H_{\phi}(x_*)^{-1} \left(H_{\phi}(x_*) - H_{\phi}(x_* + \xi e_k)\right) e_k \|,$$
 
 which implies under the Lipschitz assumption that
 
