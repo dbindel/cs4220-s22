@@ -292,6 +292,11 @@
 -
   date: 2022-04-11
   info: Gauss-Newton and nonlinear least squares
+  ulinks:
+    - info: NB (Julia)
+      url: lec/2022-04-11.jl
+    - info: NB (HTML)
+      url: lec/2022-04-11.jl.html
 -
   date: 2022-04-13
   info: Modified Newton iterations
