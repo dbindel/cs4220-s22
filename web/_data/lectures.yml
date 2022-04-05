@@ -308,6 +308,11 @@
 -
   date: 2022-04-15
   info: Quasi-Newton and other iterations
+  ulinks:
+    - info: NB (Julia)
+      url: lec/2022-04-15.jl
+    - info: NB (HTML)
+      url: lec/2022-04-15.jl.html
 #
 # ==================
 # Week 12 (iterations and globalization)
