@@ -458,7 +458,7 @@ but Levenberg-Marquardt does.
 # ╔═╡ 95ef4276-2787-41aa-8e09-5da9bb826a7a
 begin
 	lorx_resids = []
-	lorx_p = levenberg_marquardt(lorx_fJ, lorx_p0, λ=0.2, 
+	lorx_p = levenberg_marquardt(lorx_fJ, lorx_p0, λ=0.5, 
 		                         monitor=(x, rnorm)->push!(lorx_resids, rnorm))
 	lorx_plot(lorx_p)
 end

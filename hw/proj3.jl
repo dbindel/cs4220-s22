@@ -15,15 +15,15 @@ md"""
 # Project 3: Adaptive Splines
 #### Due: 2022-04-22
 
-A [*polyharmonic spline*](https://en.wikipedia.org/wiki/Thin_plate_spline) is a type of function approximator of the form
+A [*polyharmonic spline*](https://en.wikipedia.org/wiki/Thin_plate_spline) is a type of function approximator for functions from $\mathbb{R}^d \rightarrow \mathbb{R}$ of the form
 
 $$s(x) = \sum_{j=1}^m \phi(\|x-u_j\|) a_j + \gamma_{1:d}^T x + \gamma_{d+1}$$
 
 where
 
 $$\phi(\rho) = \begin{cases}
-  r^k \log (r), & k \mbox{ even}, \\
-  r^k, & k \mbox{ odd}.
+  \rho^k \log (\rho), & k \mbox{ even}, \\
+  \rho^k, & k \mbox{ odd}.
 \end{cases}$$
 
 Common examples include cubic splines $(k = 3)$ and thin plate splines ($k = 2)$.  We will consider cubic splines here.
@@ -614,7 +614,7 @@ end
 md"""
 ##### Tasks
 
-1.  Let $x_*$ be a strong local minimizer of $g$, where $g$ is twice continuously differentiable and the Hessian $H_g$ has a Lipschitz constant $M$ in the operator 2-norm, and that $\rho < \lambda_{\min}(H_g(x_*))/M$.  Using a Taylor expansion about $x_*$, show that $\frac{1}{2} \rho^2(\lambda_{\min}(H_g(x_*))-Mρ) > 2 \delta$ is sufficient to guarantee that $\min_{\|u\|=1} g(x_* + \rho u) - g(x_*) > 2\delta$.
+1.  Let $x_*$ be a strong local minimizer of $g$, where $g$ is twice continuously differentiable and the Hessian $H_g$ has a Lipschitz constant $M$ in the operator 2-norm, and that $\rho < \lambda_{\min}(H_g(x_*))/M$.  Using a Taylor expansion about $x_*$, show that $\frac{1}{2} \rho^2(\lambda_{\min}(H_g(x_*))-M\rho) > 2 \delta$ is sufficient to guarantee that $\min_{\|u\|=1} g(x_* + \rho u) - g(x_*) > 2\delta$.
 
 2.  Compute the smallest singular value of the Hessian of the log-transformed Himmelblau function at $(3,2)$.  Also compute the approximation error in the spline fit at $(3,2)$ and use that as an approximate $\delta$ and plug into the estimate
 
@@ -641,7 +641,7 @@ begin
 
 	rms_vs_truth(u, c) = norm(y_truth - spline_eval(xx_truth, u, c)) / sqrt(length(y_truth))
 
-	xx_data = meshgrid_uniform(-6.0, 6.0, -6.0, 6.0, 100, 100)
+	xx_data = meshgrid_uniform(-6.0, 6.0, -6.0, 6.0, 40, 40)
 	y_data = [log_himmelblau(x) for x in eachcol(xx_data)]
 end
 
