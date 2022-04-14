@@ -320,9 +320,19 @@
 -
   date: 2022-04-18
   info: Line search and globalization
+  ulinks:
+    - info: NB (Julia)
+      url: lec/2022-04-18.jl
+    - info: NB (HTML)
+      url: lec/2022-04-18.jl.html
 -
   date: 2022-04-20
   info: Trust regions
+  ulinks:
+    - info: NB (Julia)
+      url: lec/2022-04-20.jl
+    - info: NB (HTML)
+      url: lec/2022-04-20.jl.html
 -
   date: 2022-04-22
   info: Homotopy and continuation
