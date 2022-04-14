@@ -338,6 +338,11 @@
   info: Homotopy and continuation
   hw:
     - info: P3 due
+  ulinks:
+    - info: NB (Julia)
+      url: lec/2022-04-22.jl
+    - info: NB (HTML)
+      url: lec/2022-04-22.jl.html
 #
 # ==================
 # Week 14 (globalization and constraints)
