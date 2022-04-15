@@ -707,6 +707,10 @@ md"""
 Complete the `spline_forward_regression` function below, then run the code with 500 points chosen from our quasirandom sequence.  Run the test harness above to see how much the RMS error measure improves.
 """
 
+# ╔═╡ 6c420394-933f-4df4-a19e-1f46e7ced63a
+function spline_forward_regression(ucand, xx, y, npoints)
+end
+
 # ╔═╡ 2662eba2-7cb3-4085-87bc-812ed2625046
 md"""
 ## Levenberg-Marquardt refinement
@@ -1805,6 +1809,7 @@ version = "0.9.1+5"
 # ╟─aca5795d-11a4-4c96-a73a-634003558338
 # ╟─ce77c338-8eca-48bb-be4f-ba14a46c7f69
 # ╟─598435d7-e56c-45d9-ade4-4844b640b530
+# ╠═6c420394-933f-4df4-a19e-1f46e7ced63a
 # ╟─2662eba2-7cb3-4085-87bc-812ed2625046
 # ╠═29543f67-8ed6-4012-81c4-5bd78659e8a9
 # ╠═9500819d-cae4-48ba-8a0d-bb27808c17cb
