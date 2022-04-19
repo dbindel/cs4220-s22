@@ -350,6 +350,11 @@
 -
   date: 2022-04-25
   info: Constraints and multipliers
+  ulinks:
+    - info: NB (Julia)
+      url: lec/2022-04-25.jl
+    - info: NB (HTML)
+      url: lec/2022-04-25.jl.html
 -
   date: 2022-04-27
   info: Methods for equality constraints
