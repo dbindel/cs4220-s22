@@ -368,6 +368,11 @@
   info: Methods for inequality constraints
   hw:
     - info: HW5 due
+  ulinks:
+    - info: NB (Julia)
+      url: lec/2022-04-29.jl
+    - info: NB (HTML)
+      url: lec/2022-04-29.jl.html
 #
 # ==================
 # Week 15 (constraints)
