@@ -5,6 +5,7 @@ HW= \
 	hw2.jl \
 	hw3.jl \
 	hw4.jl \
+	hw5.jl \
 	proj1.jl \
 	proj2.jl \
 	proj3.jl \
@@ -12,6 +13,7 @@ HW= \
 	hw2.jl.html \
 	hw3.jl.html \
 	hw4.jl.html \
+	hw5.jl.html \
 	proj1.jl.html \
 	proj2.jl.html \
 	proj3.jl.html \
