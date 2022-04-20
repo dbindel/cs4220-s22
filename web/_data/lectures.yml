@@ -358,6 +358,11 @@
 -
   date: 2022-04-27
   info: Methods for equality constraints
+  ulinks:
+    - info: NB (Julia)
+      url: lec/2022-04-27.jl
+    - info: NB (HTML)
+      url: lec/2022-04-27.jl.html
 -
   date: 2022-04-29
   info: Methods for inequality constraints
