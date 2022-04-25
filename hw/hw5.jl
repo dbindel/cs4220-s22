@@ -45,8 +45,8 @@ function discrete_kg(f, df; N=100)
 	T = SymTridiagonal(2*ones(N), -1*ones(N-1))
 
 	# Function, jacobian, and derivative with respect to λ
-	F(u, λ) = -λ*T*u + f.(u)
-	J(u, λ) = SymTridiagonal(-2*λ .+ df.(u), λ*ones(N-1))
+	F(u, λ) = -λ*T*u - f.(u)
+	J(u, λ) = SymTridiagonal(-2*λ .- df.(u), λ*ones(N-1))
 	dFdλ(u, λ) = -T*u
 
 	F, J, dFdλ
@@ -93,7 +93,7 @@ The following slider controls the coupling constant $\lambda$.  The plot below s
 md"""
 ##### Answer
 
-Convergence starts to break down around just past $\lambda = 0.85$.
+Convergence starts to break down around just past $\lambda = 0.37$.
 """
 
 # ╔═╡ 8d270f30-5218-4ad7-818b-28bdd9f0f8cf
@@ -143,7 +143,7 @@ let
 	end
 
 	# Do the plot
-	plot(λs, unorms, title="Up to $(λs[end])", legend=false)
+	#plot(λs, unorms, title="Up to $(λs[end])", legend=false)
 end
 
 # ╔═╡ 8a277e6d-ff81-49ee-898e-54a9d7bf3654
@@ -264,16 +264,16 @@ let
 		tg = Juλ\eλ
 		t = tg[1:end-1]
 		g = tg[end]
-		Dtg = Juλ \ [T*g-diagm(12*u.*t) T*t; 0*c' 0]
+		Dtg = Juλ \ [T*g+diagm(12*u.*t) T*t; 0*c' 0]
 		tg[end], Dtg[end,:]
 	end
 
 	# TODO: Put in a Newton refinement loop
 	resids = []
 
-	plot(plot(u, title="$λ", legend=false),
-		 plot(resids, yscale=:log10, legend=false, title="Convergence plot"),
-		 layout = (2,1))
+	#plot(plot(u, title="$λ", legend=false),
+	#	 plot(resids, yscale=:log10, legend=false, title="Convergence plot"),
+	#	 layout = (2,1))
 end
 
 # ╔═╡ 00000000-0000-0000-0000-000000000001
@@ -829,9 +829,9 @@ uuid = "de0858da-6303-5e67-8744-51eddeeeb8d7"
 
 [[deps.Qt5Base_jll]]
 deps = ["Artifacts", "CompilerSupportLibraries_jll", "Fontconfig_jll", "Glib_jll", "JLLWrappers", "Libdl", "Libglvnd_jll", "OpenSSL_jll", "Pkg", "Xorg_libXext_jll", "Xorg_libxcb_jll", "Xorg_xcb_util_image_jll", "Xorg_xcb_util_keysyms_jll", "Xorg_xcb_util_renderutil_jll", "Xorg_xcb_util_wm_jll", "Zlib_jll", "xkbcommon_jll"]
-git-tree-sha1 = "ad368663a5e20dbb8d6dc2fddeefe4dae0781ae8"
+git-tree-sha1 = "c6c0f690d0cc7caddb74cef7aa847b824a16b256"
 uuid = "ea2cea3b-5b76-57ae-a6ef-0a8af62496e1"
-version = "5.15.3+0"
+version = "5.15.3+1"
 
 [[deps.REPL]]
 deps = ["InteractiveUtils", "Markdown", "Sockets", "Unicode"]
