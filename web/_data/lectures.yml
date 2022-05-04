@@ -375,19 +375,22 @@
       url: lec/2022-04-29.jl.html
 #
 # ==================
-# Week 15 (constraints)
+# Week 15 (topics)
 #
 -
   date: 2022-05-02
-  info: Splitting methods
+  info: CANCELED (illness)
 -
   date: 2022-05-04
   info: Derivative free methods
+  ulinks:
+    - info: NB (Julia)
+      url: lec/2022-05-04.jl
+    - info: NB (HTML)
+      url: lec/2022-05-04.jl.html
 -
   date: 2022-05-06
   info: Review
-  hw:
-    - info: HW6 due
 #
 # ==================
 # Week 16 (wrap-up)
