@@ -19,7 +19,9 @@ HW= \
 	proj3.jl.html \
 	proj_idea.md \
 	mt.jl \
-	mt.jl.html
+	mt.jl.html \
+	final.jl \
+	final.jl.html
 
 .PHONY: all copy
 all: $(LEC)
