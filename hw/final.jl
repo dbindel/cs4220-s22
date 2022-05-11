@@ -284,6 +284,11 @@ For the third part, use the matrix
 # ╔═╡ 1b6bc7de-89cc-4fa7-9a02-062f77d0f4d7
 A = [3.0 1.0 1.0; 1.0 4.0 1.0; 1.0 1.0 5.0]
 
+# ╔═╡ 59adf422-46c5-483d-90b6-25148684ef2e
+md"""
+*Note*: We say $\lambda, v$ are an eigenvalue and eigenvector of a pencil $(A,B)$ if $Av = \lambda B v$.  When $B$ is invertible, this is the same as saying $\lambda$ and $v$ are an eigenvalue and eigenvector of $B^{-1} A$.
+"""
+
 # ╔═╡ 00000000-0000-0000-0000-000000000001
 PLUTO_PROJECT_TOML_CONTENTS = """
 [deps]
@@ -1198,5 +1203,6 @@ version = "0.9.1+5"
 # ╟─889f2a54-2028-471b-b4fc-9f9309996e4d
 # ╟─7d6b770c-ab60-4611-9bb2-24d095eaca99
 # ╠═1b6bc7de-89cc-4fa7-9a02-062f77d0f4d7
+# ╟─59adf422-46c5-483d-90b6-25148684ef2e
 # ╟─00000000-0000-0000-0000-000000000001
 # ╟─00000000-0000-0000-0000-000000000002
